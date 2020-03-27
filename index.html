@@ -259,6 +259,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/2020-03-26-Fixed-some-issues-of-the-Hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ars Magna   "El Gran Arte"">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b4f5abcb-6eee-4a3d-bcad-c11552df1c95/d1ftwtp-cae914ca-8e0c-41d2-b0b5-32fe61b2f8e7.jpg/v1/fill/w_605,h_750,q_75,strp/seiya_by_spaceweaver_d1ftwtp-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzUwIiwicGF0aCI6IlwvZlwvYjRmNWFiY2ItNmVlZS00YTNkLWJjYWQtYzExNTUyZGYxYzk1XC9kMWZ0d3RwLWNhZTkxNGNhLThlMGMtNDFkMi1iMGI1LTMyZmU2MWIyZjhlNy5qcGciLCJ3aWR0aCI6Ijw9NjA1In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.87g460Y4Wh4VkwKufRjEnKdegA9_7KR6i26k4aYkGQ0">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瀛涯胜览">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/26/2020-03-26-Fixed-some-issues-of-the-Hexo/" itemprop="url">2020-03-26 Fixed some issues of the Hexo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-26T17:07:45-07:00">
+                2020-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Blog-Development/" itemprop="url" rel="index">
+                    <span itemprop="name">Blog Development</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>自从更换Hexo主题至Next之后，就一直存在这样的一个问题：博客首页的按钮，如Archive, Home, About等，均能正常显示图标，但是点击后页面跳转都会出现问题而最后导致404。一开始也是试图自己去查找问题原因，但是试了很多次的结果也都不太对。</li>
+</ol>
+<p>昨天晚上最后查了很久，发现有一些人也出现过同样的问题，他们也给出了相应的博文去解释。问题其实出在Next自带的配置文件中，有一些代码有不规范的地方，最终会导致这个404问题。 </p>
+<p>所以最终的解决方案是：</p>
+<p>修改主题配置文件: <code>/themes/_config.yml</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /|| home</span><br><span class="line">  categories: /categories/|| th</span><br><span class="line">  archives: /archives/|| archive</span><br><span class="line">  about: /about/|| user</span><br><span class="line">  <span class="comment">#tags: /tags/ || tags</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
+<p>将/和||之间的空格全部去掉即可。</p>
+<ol start="2">
+<li>第一个问题尚未解决之前，我也曾经尝试过给博文增加标签或者分类，但是发现增加了标签分类的博文在部署到线上之后会显示不出来。试了几次，把加上去的标签、分类删掉就会正常显示。 后来发现是tags和categories页面的配置是错误的，应该用<code>layouts：XXX</code> 而不是<code>types: XXX</code>。改了之后就正常显示。</li>
+</ol>
+<p>其实这两个问题都属于使用Hexo过程中遇到的再简单不过、再正常不过的问题，但是却困扰了我很多天，但是最后都能解决。可见未来的时间里还是要好好学习技术方面的知识。</p>
+<h1 id="下一个目标：学会在博文里增加图片，并且保证其正常显示"><a href="#下一个目标：学会在博文里增加图片，并且保证其正常显示" class="headerlink" title="下一个目标：学会在博文里增加图片，并且保证其正常显示"></a>下一个目标：学会在博文里增加图片，并且保证其正常显示</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/23/2020-03-23-Datacamp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -853,7 +1006,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -864,7 +1017,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -875,7 +1028,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
