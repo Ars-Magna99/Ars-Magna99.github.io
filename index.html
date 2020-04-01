@@ -259,6 +259,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/31/2020-03-31-Codewars-SQL-practice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ars Magna   "El Gran Arte"">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b4f5abcb-6eee-4a3d-bcad-c11552df1c95/d1ftwtp-cae914ca-8e0c-41d2-b0b5-32fe61b2f8e7.jpg/v1/fill/w_605,h_750,q_75,strp/seiya_by_spaceweaver_d1ftwtp-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzUwIiwicGF0aCI6IlwvZlwvYjRmNWFiY2ItNmVlZS00YTNkLWJjYWQtYzExNTUyZGYxYzk1XC9kMWZ0d3RwLWNhZTkxNGNhLThlMGMtNDFkMi1iMGI1LTMyZmU2MWIyZjhlNy5qcGciLCJ3aWR0aCI6Ijw9NjA1In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.87g460Y4Wh4VkwKufRjEnKdegA9_7KR6i26k4aYkGQ0">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瀛涯胜览">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/31/2020-03-31-Codewars-SQL-practice/" itemprop="url">2020-03-31 Codewars SQL practice</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-31T16:39:56-07:00">
+                2020-03-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database/" itemprop="url" rel="index">
+                    <span itemprop="name">Database</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="Simple-Fun-74-Growing-Plant"><a href="#Simple-Fun-74-Growing-Plant" class="headerlink" title="Simple Fun #74: Growing Plant"></a>Simple Fun #74: Growing Plant</h4><p>这是3-31日所做的一道SQL练习。来源是刷题网站codewars。</p>
+<ul>
+<li>Task:</li>
+</ul>
+<p>Each day a plant is growing by <code>upSpeed</code> meters. Each night that plant’s height decreases by <code>downSpeed</code> meters due to the lack of sun heat. Initially, plant is 0 meters tall. We plant the seed at the beginning of a day. We want to know when the height of the plant will reach a certain level.</p>
+<hr>
+<p>Solution:</p>
+<p>The question did not give us any dataset. Thus, we need to define a function using Python and use it to do the calculations: </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">growingPlant</span><span class="params">(upSpeed, downSpeed, desiredHeight)</span>:</span></span><br></pre></td></tr></table></figure>
+
+<p>The inputs of the function will be the three that was given in the example: <code>upSpeed</code>,<code>downspeed</code>and <code>desiredHeight</code>. </p>
+<p>The first try of mine did not pass the test:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">growing_plant</span><span class="params">(upSpeed, downSpeed, desiredHeight)</span>:</span></span><br><span class="line">    plus = upSpeed</span><br><span class="line">    minus = downSpeed </span><br><span class="line">    height = <span class="number">0</span></span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> plus &gt; desiredHeight:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> height &lt;= desiredHeight:</span><br><span class="line">        height += plus</span><br><span class="line">        height -= minus</span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> n</span><br></pre></td></tr></table></figure>
+
+<p>It seems that this function can pass the test, but fails the first attempt. The calculation result of my function always differs the correct answer by 1. </p>
+<p>After re-reading the requirement, I got to know what went wrong. The days and nights are seperated in this scenario. The dates are counted in this way: day1,night1,day2,night2…etc. It is possible that the plant did not reach the desired height at night 9 but it reached at day 10. Then the returned value should still be 10. </p>
+<p>But in my first attempt, I just did plus and minus in the same day. </p>
+<p>写到此处，我去吃了个晚饭。</p>
+<p>One of the correct answers to this question is :</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">growing_plant</span><span class="params">(upSpeed, downSpeed, desiredHeight)</span>:</span></span><br><span class="line">    plus = upSpeed</span><br><span class="line">    minus = downSpeed </span><br><span class="line">    height = <span class="number">0</span></span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> upSpeed &gt; desiredHeight:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> height &lt;= desiredHeight:</span><br><span class="line">        height += plus</span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> height &lt; desiredHeight:</span><br><span class="line">            height -= minus</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> n</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Here is how it works. In the daytime, the plant grows <code>upSeed</code> in height. Then we need to check whether it has grown to the desired height during the daytime by using the if-statement. If not, we let the plant  continue to grow during night at <code>downSpeed</code>. And we need to add the number of days by 1. </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/26/A-B-Testing-%E5%88%9D%E6%8E%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1322,7 +1487,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1333,7 +1498,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
@@ -1344,7 +1509,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
