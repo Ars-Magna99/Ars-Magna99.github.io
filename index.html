@@ -259,6 +259,204 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/2020-04-04-Hackerank-SQL-practice/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ars Magna   "El Gran Arte"">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b4f5abcb-6eee-4a3d-bcad-c11552df1c95/d1ftwtp-cae914ca-8e0c-41d2-b0b5-32fe61b2f8e7.jpg/v1/fill/w_605,h_750,q_75,strp/seiya_by_spaceweaver_d1ftwtp-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzUwIiwicGF0aCI6IlwvZlwvYjRmNWFiY2ItNmVlZS00YTNkLWJjYWQtYzExNTUyZGYxYzk1XC9kMWZ0d3RwLWNhZTkxNGNhLThlMGMtNDFkMi1iMGI1LTMyZmU2MWIyZjhlNy5qcGciLCJ3aWR0aCI6Ijw9NjA1In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.87g460Y4Wh4VkwKufRjEnKdegA9_7KR6i26k4aYkGQ0">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="瀛涯胜览">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/04/2020-04-04-Hackerank-SQL-practice/" itemprop="url">2020-04-04 Hackerank SQL practice</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-04T22:47:19-07:00">
+                2020-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Database-Career/" itemprop="url" rel="index">
+                    <span itemprop="name">Database, Career</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>Difficulty</strong>: Medium</p>
+<p><strong>Question</strong> : Julia asked her students to create some coding challenges. Write a query to print the <code>*hacker_id*</code>,<code>name</code>, and the total number of challenges created by each student. Sort your results by the total number of challenges in descending order. If more than one student created the same number of challenges, then sort the result by <code>*hacker_id*</code>. If more than one student created the same number of challenges and the count is less than the maximum number of challenges created, then exclude those students from the result.</p>
+<p><strong>Input Format</strong></p>
+<p>The following tables contain challenge data:</p>
+<ul>
+<li><em>Hackers</em>: The <em>hacker_id</em> is the id of the hacker, and <em>name</em> is the name of the hacker.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hacker_id</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Text</td>
+</tr>
+</tbody></table>
+<ul>
+<li><em>Challenges</em>: The <em>challenge_id</em> is the id of the challenge, and <em>hacker_id</em> is the id of the student who created the challenge.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>challenge_id</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>hacker_id</td>
+<td>Integer</td>
+</tr>
+</tbody></table>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>For this problem, we can join two tables first and then group by hacker_id and name to get total number of challenges created by each student:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.hacker_id, h.name, <span class="keyword">COUNT</span>(c.challenge_id) </span><br><span class="line"><span class="keyword">FROM</span> Hackers <span class="keyword">AS</span> h <span class="keyword">JOIN</span> Challenges <span class="keyword">AS</span> c <span class="keyword">ON</span> h.hacker_id = c.hacker_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> c.hacker_id, h.name;</span><br></pre></td></tr></table></figure>
+
+<p>Next, we need to exclude students who have same number of challenges with others and the number is not the maximum. We can use ‘HAVING’ to filter results. Students included in the output should satisfy either of the two requirements: the total number is the maximum or the number only appears once.</p>
+<p>Therefore, if the total number is the maximum value, we will include the student:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.hacker_id, h.name, <span class="keyword">COUNT</span>(c.challenge_id) <span class="keyword">AS</span> cnt </span><br><span class="line"><span class="keyword">FROM</span> Hackers <span class="keyword">AS</span> h <span class="keyword">JOIN</span> Challenges <span class="keyword">AS</span> c <span class="keyword">ON</span> h.hacker_id = c.hacker_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> c.hacker_id, h.name <span class="keyword">HAVING</span></span><br><span class="line">cnt = (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(c1.challenge_id) <span class="keyword">FROM</span> Challenges <span class="keyword">AS</span> c1 <span class="keyword">GROUP</span> <span class="keyword">BY</span> c1.hacker_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">COUNT</span>(*) <span class="keyword">DESC</span> <span class="keyword">LIMIT</span> <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<p>Or, if some student’s number is different from all other students’ numbers, we will include the student as well:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.hacker_id, h.name, <span class="keyword">COUNT</span>(c.challenge_id) <span class="keyword">AS</span> cnt </span><br><span class="line"><span class="keyword">FROM</span> Hackers <span class="keyword">AS</span> h <span class="keyword">JOIN</span> Challenges <span class="keyword">AS</span> c <span class="keyword">ON</span> h.hacker_id = c.hacker_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> c.hacker_id, h.name <span class="keyword">HAVING</span></span><br><span class="line">cnt = (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(c1.challenge_id) <span class="keyword">FROM</span> Challenges <span class="keyword">AS</span> c1 <span class="keyword">GROUP</span> <span class="keyword">BY</span> c1.hacker_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">COUNT</span>(*) <span class="keyword">DESC</span> <span class="keyword">LIMIT</span> <span class="number">1</span>) <span class="keyword">OR</span></span><br><span class="line">cnt <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(c2.challenge_id) <span class="keyword">FROM</span> Challenges <span class="keyword">AS</span> c2 <span class="keyword">GROUP</span> <span class="keyword">BY</span> c2.hacker_id <span class="keyword">HAVING</span> c2.hacker_id &lt;&gt; c.hacker_id);</span><br></pre></td></tr></table></figure>
+
+<p>Finally, sort results by total number of challenges in descending order and hacker_id in ascending order:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.hacker_id, h.name, <span class="keyword">COUNT</span>(c.challenge_id) <span class="keyword">AS</span> cnt </span><br><span class="line"><span class="keyword">FROM</span> Hackers <span class="keyword">AS</span> h <span class="keyword">JOIN</span> Challenges <span class="keyword">AS</span> c <span class="keyword">ON</span> h.hacker_id = c.hacker_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> c.hacker_id, h.name <span class="keyword">HAVING</span></span><br><span class="line">cnt = (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(c1.challenge_id) <span class="keyword">FROM</span> Challenges <span class="keyword">AS</span> c1 <span class="keyword">GROUP</span> <span class="keyword">BY</span> c1.hacker_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">COUNT</span>(*) <span class="keyword">DESC</span> <span class="keyword">LIMIT</span> <span class="number">1</span>) <span class="keyword">OR</span></span><br><span class="line">cnt <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(c2.challenge_id) <span class="keyword">FROM</span> Challenges <span class="keyword">AS</span> c2 <span class="keyword">GROUP</span> <span class="keyword">BY</span> c2.hacker_id <span class="keyword">HAVING</span> c2.hacker_id &lt;&gt; c.hacker_id)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> cnt <span class="keyword">DESC</span>, c.hacker_id;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> c.hacker_id, h.name, <span class="keyword">COUNT</span>(c.challenge_id) <span class="keyword">AS</span> cnt </span><br><span class="line"><span class="keyword">FROM</span> Hackers <span class="keyword">AS</span> h <span class="keyword">JOIN</span> Challenges <span class="keyword">AS</span> c <span class="keyword">ON</span> h.hacker_id = c.hacker_id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> c.hacker_id, h.name <span class="keyword">HAVING</span></span><br><span class="line">cnt = (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(c1.challenge_id) <span class="keyword">FROM</span> Challenges <span class="keyword">AS</span> c1 <span class="keyword">GROUP</span> <span class="keyword">BY</span> c1.hacker_id <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">COUNT</span>(*) <span class="keyword">DESC</span> <span class="keyword">LIMIT</span> <span class="number">1</span>) <span class="keyword">OR</span></span><br><span class="line">cnt <span class="keyword">NOT</span> <span class="keyword">IN</span> (<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(c2.challenge_id) <span class="keyword">FROM</span> Challenges <span class="keyword">AS</span> c2 <span class="keyword">GROUP</span> <span class="keyword">BY</span> c2.hacker_id <span class="keyword">HAVING</span> c2.hacker_id &lt;&gt; c.hacker_id)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> cnt <span class="keyword">DESC</span>, c.hacker_id;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/04/2020-04-04-SQL-Reivew-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1621,7 +1819,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1632,7 +1830,7 @@
               
               <div class="site-state-item site-state-categories">
                 
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 
               </div>
